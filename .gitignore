@@ -1,0 +1,8 @@
+/build
+/node_modules
+package-lock.json
+/build
+.eslintcache.env.local
+.env.development.local
+.env.test.local
+.env.production.local
