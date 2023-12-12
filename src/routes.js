@@ -37,6 +37,13 @@ var routes = [
     layout: "/admin",
   },
   {
+    path: "/contract",
+    name: "Contract",
+    icon: <FaFileContract style={{ color: "#172b4d" }} />,
+    component: <Contract />,
+    layout: "/admin",
+  },
+  {
     path: "/scan",
     name: "Scan",
     icon: <FaCameraRetro style={{ color: "#172b4d" }} />,

@@ -13,7 +13,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              bau1u
+            bau1u
             </a>
           </div>
         </Col>

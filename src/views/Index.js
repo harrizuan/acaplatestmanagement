@@ -159,7 +159,7 @@ const Index = (props) => {
             {renderTable("Equipment", equipmentData)}
           </Col>
           <Col xl="4">
-            {renderTable("Location", locationData)}
+            {renderTable("Location", locationData)} 
           </Col>
         </Row>
       </Container>

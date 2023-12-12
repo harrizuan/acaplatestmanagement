@@ -7,6 +7,8 @@ import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { TailSpin } from 'react-loader-spinner'; // Import the loader
 import QRCode from 'qrcode.react'; // Import QRCode component
+import {useNavigate} from 'react-router-dom'
+import routes from 'routes';
 
 const Asset = () => {
     const [data, setData] = useState([]);
@@ -21,6 +23,7 @@ const Asset = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [qrValue, setQRValue] = useState('');
 
+    const navigate = useNavigate();
     const filterRows = (rows) => {
         return rows.filter(row => {
             return (
@@ -88,27 +91,26 @@ const Asset = () => {
             cell: row => (
                 <div>
                     <FaEdit
-                        id={`edit-${row.id}`}
+                        id={'edit-${row.id}'}
                         style={{ cursor: 'pointer' }}
                         onClick={() => handleEdit(row.id)}
                     />
                     <Tooltip
-                        isOpen={tooltipOpen[`edit-${row.id}`]}
-                        target={`edit-${row.id}`}
-                        toggle={() => toggleTooltip(`edit-${row.id}`)}
+                        isOpen={tooltipOpen['edit-'+row.id]}
+                        toggle={() => toggleTooltip('edit-' + row.id)}
                     >
                         Edit
                     </Tooltip>
                     {' '}
                     <FaTrashAlt
-                        id={`delete-${row.id}`}
+                        id={'delete-${row.id}}'}
                         style={{ cursor: 'pointer' }}
                         onClick={() => handleDelete(row.id)}
                     />
                     <Tooltip
-                        isOpen={tooltipOpen[`delete-${row.id}`]}
-                        target={`delete-${row.id}`}
-                        toggle={() => toggleTooltip(`delete-${row.id}`)}
+                        isOpen={tooltipOpen['delete-' + row.id]}
+                        target={'delete-' + row.id}
+                        toggle={() => toggleTooltip('delete-' + row.id)}
                     >
                         Delete
                     </Tooltip>
@@ -119,9 +121,10 @@ const Asset = () => {
                         onClick={() => handleQRCode(row.id)}
                     />
                     <Tooltip
-                        isOpen={tooltipOpen[`qrcode-${row.id}`]}
-                        target={`qrcode-${row.id}`}
-                        toggle={() => toggleTooltip(`qrcode-${row.id}`)}
+                        isOpen={tooltipOpen['qrcode-' + row.id]}
+                        target={'qrcode-' + row.id}
+
+                        toggle={() => toggleTooltip('qrcode-' + row.id)}
                     >
                         QR Code
                     </Tooltip>
@@ -150,7 +153,6 @@ const Asset = () => {
     useEffect(() => {
         fetchData();
     }, []);
-
     const handleEdit = (id) => {
         console.log("Edit", id);
         // Implementation for Edit
@@ -191,6 +193,11 @@ const Asset = () => {
             </div>
         );
     };
+
+    const displayContract = (contractDatas) => {
+        console.log(contractDatas);
+        navigate('/admin/contract', {state: contractDatas});
+    }
 
     return (
         <>
@@ -279,6 +286,7 @@ const Asset = () => {
                                         defaultSortFieldId={1}
                                         pagination
                                         highlightOnHover
+                                        onRowClicked={displayContract}
                                     />
                                 </div>
                             )}

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import AppRoutes from './routes';
 
 // Import styles
 import "assets/plugins/nucleo/css/nucleo.css";
