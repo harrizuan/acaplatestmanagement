@@ -1,4 +1,3 @@
-
 import { Container, Row, Col, Nav, NavItem, NavLink } from "reactstrap";
 
 const Footer = () => {
@@ -13,11 +12,10 @@ const Footer = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-            bau1u
+              Acap
             </a>
           </div>
         </Col>
-
       </Row>
     </footer>
   );

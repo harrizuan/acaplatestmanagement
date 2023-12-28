@@ -1,11 +1,19 @@
-import { FaTv, FaTag, FaBuilding, FaCameraRetro, FaKey } from 'react-icons/fa';
+import {
+  FaTv,
+  FaTag,
+  FaBuilding,
+  FaCameraRetro,
+  FaKey,
+  FaFileContract,
+} from "react-icons/fa";
 import Index from "views/Index.js";
 import TestSection from "views/TestSection.js";
 import Maps from "views/examples/Maps.js";
 import Login from "views/examples/Login.js";
 import Form from "views/examples/Form.js";
 import Asset from "views/examples/Asset";
-import Scan from 'views/examples/Scan';
+import Scan from "views/examples/Scan";
+import Contract from "views/examples/contract";
 
 var routes = [
   {
